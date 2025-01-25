@@ -52,6 +52,9 @@ yarn-error.log
 **/fastlane/screenshots
 **/fastlane/test_output
 
+#Secret 
+.google-services.json
+
 # Bundle artifact
 *.jsbundle
 

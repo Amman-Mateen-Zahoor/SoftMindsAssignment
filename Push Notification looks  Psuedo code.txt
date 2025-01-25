@@ -1,0 +1,8 @@
+title : Push Notification by using Firebase Service .
+steps:
+create Projeect on firebase console
+In creating ADD ssh1 key that is generating in our app code 
+/android/./gradlew signinReport     
+paste and create then install all libraries react app the app token is saved 
+fcm token is generated 
+by using this we test our notifications .
