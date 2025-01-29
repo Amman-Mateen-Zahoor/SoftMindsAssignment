@@ -120,11 +120,11 @@
 //     <View style={styles.container}>
 //       <Text>Products Detail</Text>
 //       <Header></Header>
-      
-//     <ScrollView > 
+
+//     <ScrollView >
 //       {products.map(item => (
 //         <Product item ={item} />
-       
+
 //       ))}
 //       </ScrollView>
 //     </View>
@@ -134,7 +134,7 @@
 // export default App;
 
 // const styles = StyleSheet.create({
-  
+
 //     container:{
 //         flexGrow: 1,
 //         backgroundColor: '#1A202C',
@@ -144,16 +144,30 @@
 //     }
 // });
 
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import CheckNotification from './Screens/CheckNotification'
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+// import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import RootNavigation from './src/navigation/RootNavigation';
+import Home from './src/screens/Home';
+import { Provider } from 'react-redux';
+import { store } from './src/redux/store';
+import persistStore from 'redux-persist/es/persistStore';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const App = () => {
+  let persistor =persistStore(store)
   return (
-  <CheckNotification/>
-  )
-}
+    <Provider store={store}>
+    <PersistGate persistor={persistor}>
+  <SafeAreaProvider style={{flex: 1}}>
+    <RootNavigation />
+  </SafeAreaProvider>
+  </PersistGate>
+  </Provider>
+  );
+};
 
-export default App
+export default App;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
